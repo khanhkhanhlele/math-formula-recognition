@@ -145,7 +145,7 @@ def run_epoch(
         "total_symbols": total_symbols,
     }
     if train:
-        result["grad_norm"] = np.mean(grad_norms.cpu().numpy())
+        result["grad_norm"] = np.mean(np.array([grad.cpu().numpy() for grad in grad_norms]))
 
     return result
 
